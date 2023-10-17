@@ -4,7 +4,8 @@ import logo from "../../assets/logo.png"
 import "./navbar.css"
 import { AiOutlineBars } from "react-icons/ai"
 const Navbar = () => {
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(false);
+
     return (
         <nav className='bg-grya-100 shadow relative'>
             <div className="container mx-auto p-1">
@@ -12,7 +13,7 @@ const Navbar = () => {
                     <div className="logo">
                         <img src={logo} className='w-52' alt="SCP electronics" />
                     </div>
-                    <div className={`absolute bg-emerald-500 h-screen lg:h-auto lg:w-auto lg:static lg:flex-row lg:bg-transparent top-14 w-full flex-col items-center justify-center flex gap-7 duration-200 ${toggle ? "left-0" : "-left-full"}`}>
+                    <div className={`absolute bg-emerald-500 h-screen lg:h-auto lg:w-auto lg:static lg:flex-row lg:bg-transparent top-14 w-full flex-col items-center justify-center flex gap-7 duration-200 z-50 ${toggle ? "left-0" : "-left-full"}`}>
                         <NavLink className="font-bold" to="/" onClick={() => setToggle(!toggle)}>Home</NavLink>
                         <NavLink className="font-bold" to="/add-product" onClick={() => setToggle(!toggle)}>Add Product</NavLink>
                         <NavLink className="font-bold" to="/my-cart" onClick={() => setToggle(!toggle)}>My Cart</NavLink>

@@ -8,6 +8,7 @@ import Root from '../../layout/Root';
 import AddProduct from '../../pages/addProduct/AddProduct';
 import MyCart from '../../pages/myCart/MyCart';
 import Login from '../../pages/login/Login';
+import SignUp from '../../pages/signup/SignUp';
 
 
 const router = createBrowserRouter([
@@ -30,8 +31,12 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
-            }
-        ]
+            },
+            {
+                path: "/sign-up",
+                element: <SignUp></SignUp>
+
+            }]
     },
 ]);
 
