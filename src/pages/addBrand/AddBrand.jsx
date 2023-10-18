@@ -1,14 +1,26 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const AddBrand = () => {
     const handleAddBrand = event => {
         event.preventDefault()
         const form = event.target;
-        const bname = form.bname.value;
-        const bimg = form.imgurl.value;
+        const brandName = form.bname.value;
+        const brandImg = form.imgurl.value;
         const desc = form.desc.value;
-        console.log({ bname, bimg, desc })
-
+        const brands = { brandName, brandImg, desc }
+        fetch("http://localhost:5000/addBrand", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(brands)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({ title: "Brand Added successfully", icon: "success" })
+                }
+            })
     }
     return (
         <div className='container mx-auto px-1 mt-20'>
@@ -24,7 +36,6 @@ const AddBrand = () => {
                     </div>
                     <input type="text" placeholder='Description' className='w-full border p-3 rounded-md' name='desc' />
                     <input type="submit" className='btn btn-secondary w-full' />
-
                 </form>
             </div>
         </div>
