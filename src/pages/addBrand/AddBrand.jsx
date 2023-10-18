@@ -21,6 +21,7 @@ const AddBrand = () => {
                     Swal.fire({ title: "Brand Added successfully", icon: "success" })
                 }
             })
+        form.reset();
     }
     return (
         <div className='container mx-auto px-1 mt-20'>

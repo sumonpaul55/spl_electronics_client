@@ -29,6 +29,7 @@ const Login = () => {
         signInwithGoogle(provider)
             .then(res => {
                 res.user && Swal.fire({ title: "You have logged in with google", icon: 'success' })
+                navigate("/")
             }).catch(err => {
                 Swal.fire({ title: `something went wrong with ${err}`, icon: "error" })
             })

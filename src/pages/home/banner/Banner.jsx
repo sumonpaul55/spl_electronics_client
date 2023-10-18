@@ -11,7 +11,7 @@ const Banner = () => {
                         <p className='text-slate-300 mt-2'>Welcome to <span className='text-secondary'>SCP Electronics</span>, your one-stop destination for all things electronic! Explore a world of innovation, where cutting-edge technology meets affordability. Discover the latest smartphones, laptops, gaming gear, and a myriad of gadgets designed to enhance your digital lifestyle.</p>
                         <div className='text-white mt-5'>
                             <h3 className='md:text-2xl font-bold'>Our Product Categories</h3>
-                            <p className='capitallize text-secondary'>apple, xioami, opp, Samsung, Sony, Intel</p>
+                            <p className='capitallize text-secondary'>apple, xioami, oppo, Samsung, Sony, Intel</p>
                         </div>
                         <div className='mt-5 space-x-5'>
                             <button className='btn btn-secondary'>Explore More</button>
