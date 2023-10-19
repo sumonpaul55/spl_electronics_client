@@ -5,7 +5,9 @@ import Navbar from '../shared/header/Navbar';
 const Root = () => {
     return (
         <>
-            <Navbar></Navbar>
+            <div className='sticky top-0 bg-white z-50'>
+                <Navbar></Navbar>
+            </div>
             <Outlet></Outlet>
         </>
     );

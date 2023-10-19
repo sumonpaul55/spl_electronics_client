@@ -6,6 +6,7 @@ import "./navbar.css"
 import { AiOutlineBars } from "react-icons/ai"
 import { AuthContext } from '../contextApi/AuthProvider';
 import Swal from 'sweetalert2';
+import PrivetRoute from '../routes/PrivetRoute';
 const Navbar = () => {
     const { user, logOut, loading } = useContext(AuthContext)
     const [toggleBtn, setToggleBtn] = useState(false)
@@ -36,8 +37,12 @@ const Navbar = () => {
                     </div>
                     <div className={`absolute bg-emerald-500 h-screen lg:h-auto lg:w-auto lg:static lg:flex-row lg:bg-transparent top-14 w-full flex-col items-center justify-center flex gap-7 duration-200 z-50 ${toggle ? "left-0" : "-left-full"}`}>
                         <NavLink className="font-bold" to="/" onClick={() => setToggle(!toggle)}>Home</NavLink>
-                        <NavLink className="font-bold" to="/add-product" onClick={() => setToggle(!toggle)}>Add Product</NavLink>
-                        <NavLink className="font-bold" to="/my-cart" onClick={() => setToggle(!toggle)}>My Cart</NavLink>
+                        {
+                            <PrivetRoute>
+                                <NavLink className="font-bold" to="/add-product" onClick={() => setToggle(!toggle)}>Add Product</NavLink>
+                                <NavLink className="font-bold" to="/my-cart" onClick={() => setToggle(!toggle)}>My Cart</NavLink>
+                            </PrivetRoute>
+                        }
                         <NavLink className="font-bold" to="/login" onClick={() => setToggle(!toggle)}>Login</NavLink>
                     </div>
                     <div className='flex items-center gap-1 relative cursor-pointer' onClick={handleShowOptionUser}>

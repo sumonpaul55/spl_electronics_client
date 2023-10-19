@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Banner from './banner/Banner';
 import Brands from './brands/Brands';
 import { TbTruckDelivery } from "react-icons/tb"
+import { MdOutlinePriceCheck, MdRealEstateAgent } from "react-icons/md"
 import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
@@ -28,7 +29,7 @@ const Home = () => {
                         </div>
                         <div className='flex items-center w-full'>
                             <div className='px-5'>
-                                <span className='p-5 lg:p-8 bg-white block rounded-full text-3xl text-secondary md:text-7xl'><TbTruckDelivery /></span>
+                                <span className='p-5 lg:p-8 bg-white block rounded-full text-3xl text-secondary md:text-7xl'><MdOutlinePriceCheck /></span>
                             </div>
                             <div className='text-white'>
                                 <h3 className="text-xl md:text-3xl font-bold pb-2">Low Price guarantee</h3>
@@ -37,7 +38,7 @@ const Home = () => {
                         </div>
                         <div className='flex items-center w-full'>
                             <div className='px-5'>
-                                <span className='p-5 lg:p-8 bg-white block rounded-full text-3xl text-secondary md:text-7xl'><TbTruckDelivery /></span>
+                                <span className='p-5 lg:p-8 bg-white block rounded-full text-3xl text-secondary md:text-7xl'><MdRealEstateAgent /></span>
                             </div>
                             <div className='text-white'>
                                 <h3 className="text-xl md:text-3xl font-bold pb-4">Certified Product</h3>
@@ -61,8 +62,14 @@ const Home = () => {
                         {loadedData.length > bsix && <button className='btn btn-secondary mx-auto' onClick={allDataDisplay}>View All Categories</button>}
                     </div>
                 </div>
-            </section >
-
+            </section>
+            {/* section for offer */}
+            <section className='py-20 px-1 bg-slate-200'>
+                <div className="container mx-auto">
+                    <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">Special Offer</h1>
+                    <p className='mt-1'>Up to 50% Discount for the following products. </p>
+                </div>
+            </section>
         </div >
     );
 };
