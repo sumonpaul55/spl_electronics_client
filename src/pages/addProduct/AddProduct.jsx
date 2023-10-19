@@ -12,7 +12,8 @@ const AddProduct = () => {
         const productType = form.productType.value;
         const desc = form.desc.value;
         const rate = form.rating.value;
-        const product = { productName, porductImg, brandName, productType, desc, rate }
+        const price = form.price.value;
+        const product = { productName, porductImg, brandName, productType, desc, rate, price }
         fetch("http://localhost:5000/addProduct", {
             method: "POST",
             headers: { "content-type": "application/json" },
@@ -39,7 +40,7 @@ const AddProduct = () => {
                             <label htmlFor="" className='text-xl mb-2 block'>Brands Name</label>
                             <select name="brand" id="" className='p-3 border' required>
                                 <option value="apple">Apple</option>
-                                <option value="xioami">Xioami</option>
+                                <option value="xiaomi">Xiaomi</option>
                                 <option value="oppo">Oppo</option>
                                 <option value="samsung">Samsung</option>
                                 <option value="sony">Sony</option>
@@ -47,7 +48,7 @@ const AddProduct = () => {
                             </select>
                         </div>
                     </div>
-                    <div className='flex items-center justify-center'>
+                    <div className='flex items-center justify-center gap-2'>
                         <div className='w-full'>
                             <label htmlFor="" className='text-xl mb-2 block'>Product Image</label>
                             <input type="text" placeholder='Product Img Url' className='w-full border p-3 rounded-md' name='imageImg' required />
@@ -57,7 +58,16 @@ const AddProduct = () => {
                             <input type="text" placeholder='Product Type' className='w-full border p-3 rounded-md' name='productType' required />
                         </div>
                     </div>
-                    <input type="text" placeholder='Description' className='w-full border p-3 rounded-md' name='desc' required />
+                    <div className='flex items-center justify-center gap-2'>
+                        <div className='w-full'>
+                            <label htmlFor="" className='text-xl mb-2 block'>Short Description</label>
+                            <input type="text" placeholder='Description' className='w-full border p-3 rounded-md' name='desc' required />
+                        </div>
+                        <div className=''>
+                            <label htmlFor="" className='text-xl mb-2 block'>Product Type</label>
+                            <input type="number" placeholder='Price $' className='w-full border p-3 rounded-md' name='price' required />
+                        </div>
+                    </div>
                     <div>
                         <label htmlFor="">Rate Out of five</label>
                         <select name="rating" className='block p-3 border w-full cursor-pointer' id="" required>
