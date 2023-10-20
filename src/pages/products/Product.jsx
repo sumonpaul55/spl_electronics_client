@@ -8,6 +8,7 @@ const Product = ({ product, setProducts, products }) => {
     const { productName, brandName, porductImg, desc, price, _id, rate } = product;
     const brand = useParams();
     const [star, setStar] = useState(rate);
+    // start rating
     const onChange = (nextValue) => {
         setStar(nextValue)
     }
@@ -50,7 +51,9 @@ const Product = ({ product, setProducts, products }) => {
                     <div className='flex items-center justify-between'>
                         <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold">{productName}</h2>
                         <div className='flex gap-3 justify-end items-c'>
-                            <span className='p-3 bg-gray-200 flex justify-center items-center hover:bg-gray-400 cursor-pointer'><AiFillEdit />Edit</span>
+                            <Link to={`/updateProduct/${_id}`}>
+                                <span className='p-3 bg-gray-200 flex justify-center items-center hover:bg-gray-400 cursor-pointer'><AiFillEdit />Edit</span>
+                            </Link>
                             <span className='p-3 bg-gray-200 flex justify-center items-center hover:bg-gray-400 cursor-pointer' onClick={() => handleDelete(_id)}><AiFillDelete />Delete</span>
                         </div>
                     </div>
