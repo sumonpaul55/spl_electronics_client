@@ -4,12 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../shared/contextApi/AuthProvider';
 const Brands = ({ brand, intemNo }) => {
     const { user } = useContext(AuthContext)
-
     const navigate = useNavigate();
     const handleBrand = (brand) => {
-        const lowerbrand = brand.toLowerCase();
+        const targetBrand = brand.toLowerCase();
         {
-            user ? navigate(`/products/${lowerbrand}`) : navigate("/login")
+            user ? navigate(`/products/${targetBrand}`) : navigate("/login")
         }
 
     }
