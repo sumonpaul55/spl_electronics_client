@@ -34,7 +34,7 @@ const Footer = () => {
                         <h1 className="text-xl md:text-2xl text-black font-semibold mb-10">Contact</h1>
                         <form className='space-y-5'>
                             <input type="text" name="name" required id="" placeholder='name' className='w-full p-2 bg-slate-100 rounded-lg' /><br />
-                            <input type="email" name="" required id="" placeholder='Email' className='w-full p-2 bg-slate-100 rounded-lg' /><br />
+                            <input type="email" name="email" required id="" placeholder='Email' className='w-full p-2 bg-slate-100 rounded-lg' /><br />
                             <input type='submit' value="Send" className='btn btn-secondary w-full' /><br />
                         </form>
                     </div>
