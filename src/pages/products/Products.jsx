@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Product from './Product';
 import { AuthContext } from '../../shared/contextApi/AuthProvider';
 import Carousel from 'react-multi-carousel';
@@ -10,7 +10,11 @@ import Slideritem from './Slideritem';
 const Products = () => {
     const [products, setProducts] = useState([]);
     const { loading } = useContext(AuthContext)
-    const { brand } = useParams()
+    const { brand } = useParams();
+    const navigate = useNavigate();
+    const goback = () => {
+        navigate(-1)
+    }
     useEffect(() => {
         fetch(`http://localhost:5000/products/${brand}`)
             .then(res => res.json())
@@ -18,6 +22,7 @@ const Products = () => {
                 setProducts(data)
             })
     }, [])
+
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -37,6 +42,7 @@ const Products = () => {
             items: 1
         }
     };
+
     return (
         <>
             <section className='py-20'>
@@ -65,10 +71,16 @@ const Products = () => {
                         {loading ?
                             <div className='animate-spin bg-black w-20 h-20 mx-auto mt-20'></div> :
                             products?.map((product, idx) => (
-                                <Product key={idx} product={product}></Product>
+                                <Product key={idx} product={product} products={products} setProducts={setProducts}></Product>
                             ))
                         }
                     </div>
+                    {
+                        !products.length > 0 && <div className='max-w-[500px] mx-auto border p-10 shadow rounded-lg text-center'>
+                            <h2 className="text-xl md:text-4xl mb-10 capitalize font-bold">no product available with {brand}</h2>
+                            <Link className='btn btn-secondary' onClick={goback}>Go Back</Link>
+                        </div>
+                    }
                 </div>
             </section>
         </>
