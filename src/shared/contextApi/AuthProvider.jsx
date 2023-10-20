@@ -6,8 +6,8 @@ export const AuthContext = createContext(null)
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const [theme, setTheme] = useState("light")
     const [loading, setLoading] = useState(true)
-
 
     const signInwithGoogle = (provider) => {
         return signInWithPopup(auth, provider)
@@ -35,9 +35,12 @@ const AuthProvider = ({ children }) => {
     const userInfo = {
         user,
         loading,
-        signUp, signInwithGoogle,
+        signUp,
+        signInwithGoogle,
         login,
-        logOut
+        logOut,
+        setTheme,
+        theme
     }
 
 

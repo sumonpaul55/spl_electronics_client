@@ -7,7 +7,9 @@ import { AiOutlineBars } from "react-icons/ai"
 import { AuthContext } from '../contextApi/AuthProvider';
 import Swal from 'sweetalert2';
 import PrivetRoute from '../routes/PrivetRoute';
+import { BsSunFill, BsSun } from "react-icons/bs"
 const Navbar = () => {
+    const { theme, setTheme } = useContext(AuthContext)
     const { user, logOut, loading } = useContext(AuthContext)
     const [toggleBtn, setToggleBtn] = useState(false)
     const [toggle, setToggle] = useState(false);
@@ -26,6 +28,11 @@ const Navbar = () => {
     const handleShowOptionUser = (e) => {
         e.stopPropagation();
         setToggleBtn(!toggleBtn)
+    }
+    const toggleTheme = () => {
+        if (theme === "light") {
+            setTheme("dark")
+        } else setTheme("light")
     }
     return (
 
@@ -65,6 +72,13 @@ const Navbar = () => {
                     <div className='block lg:hidden'>
                         <span className='text-2xl cursor-pointer' onClick={() => setToggle(!toggle)}><AiOutlineBars /></span>
                     </div>
+                    <button className='' onClick={toggleTheme}>
+                        <span>
+                            {
+                                theme === "light" ? <BsSunFill /> : <BsSun />
+                            }
+                        </span>
+                    </button>
                 </div>
             </div>
         </nav>

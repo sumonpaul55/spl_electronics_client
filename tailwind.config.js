@@ -7,8 +7,16 @@ export default {
   theme: {
     extend: {
       daisyui: {
-        themes: ["light", "dark"],
+        themes: true,
+        darkTheme: "dark",
+        base: true,
+        styled: true,
+        utils: true,
+        rtl: false,
+        prefix: "",
+        logs: true,
       },
+
     },
   },
   plugins: [require("daisyui")],

@@ -21,7 +21,7 @@ const Products = () => {
             .then(data => {
                 setProducts(data)
             })
-    }, [])
+    }, [brand])
 
     const responsive = {
         superLargeDesktop: {

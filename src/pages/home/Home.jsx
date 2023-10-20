@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Banner from './banner/Banner';
 import Brands from './brands/Brands';
 import { TbTruckDelivery } from "react-icons/tb"
 import { MdOutlinePriceCheck, MdRealEstateAgent } from "react-icons/md"
 import { useLoaderData } from 'react-router-dom';
 import headePhone from "../../assets/headphone.jpg"
+import { AuthContext } from '../../shared/contextApi/AuthProvider';
 const Home = () => {
+    const { theme } = useContext(AuthContext)
     const loadedData = useLoaderData();
     const [bsix, setBsix] = useState(6)
-
     let sixData = loadedData.slice(0, bsix)
     const allDataDisplay = () => {
         setBsix(loadedData.length)
     }
 
     return (
-        <div>
+        <div data-theme={theme}>
             <Banner></Banner>
             <section className='py-10 md:py-20 bg-teal-400'>
                 <div className="container mx-auto px-1">
