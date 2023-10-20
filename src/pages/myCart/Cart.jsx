@@ -35,16 +35,21 @@ const Cart = ({ product, allCartData, setAllCartData }) => {
         })
     }
     return (
-        <div className='flex gap-4 items-center shadow-lg p-10'>
-            <img src={porductImg} alt={productName} className='md:w-1/3' />
-            <div className='flex-1'>
-                <h2 className="text-xl md:text-3xl font-bold">{productName}</h2>
-                <p className='font-bold'>$ {price}</p>
-                <p>Type: {productType}</p>
-                <p>Brand: {brandName}</p>
+        <>
+            <div className='flex gap-4 items-center shadow-lg p-2 md:p-6'>
+                <img src={porductImg} alt={productName} className='w-1/2 md:w-1/3' />
+                <div className='flex flex-col md:flex-row justify-between w-full'>
+                    <div className='flex-1'>
+                        <h2 className="text-xl md:text-xl lg:3xl font-bold">{productName.slice(0, 9)}</h2>
+                        <p className='font-bold'>$ {price}</p>
+                        <p>Type: {productType}</p>
+                        <p>Brand: {brandName}</p>
+                    </div>
+                    <button className='btn btn-secondary' onClick={() => handleDelete(_id)}>Delete</button>
+                </div>
             </div>
-            <button className='btn btn-secondary' onClick={() => handleDelete(_id)}>Delete</button>
-        </div>
+
+        </>
 
     );
 };
