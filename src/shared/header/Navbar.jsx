@@ -40,9 +40,9 @@ const Navbar = () => {
             <div className="container mx-auto p-1">
                 <div className='flex items-center justify-between'>
                     <div className="logo">
-                        <Link to="/"><img src={logo} className='w-40 md:w-52' alt="SCP electronics" /></Link>
+                        <Link to="/"><img src={logo} className='w-28 sm:w-40 md:w-52' alt="SCP electronics" /></Link>
                     </div>
-                    <div className={`absolute bg-emerald-500 h-screen lg:h-auto lg:w-auto lg:static lg:flex-row lg:bg-transparent top-14 w-full flex-col items-center justify-center flex gap-7 duration-200 z-50 ${toggle ? "left-0" : "-left-full"}`}>
+                    <div className={`absolute bg-emerald-500 h-screen lg:h-auto lg:w-auto lg:static lg:flex-row lg:bg-transparent top-12 w-full flex-col items-center justify-center flex gap-7 duration-200 z-50 ${toggle ? "left-0" : "-left-full"}`}>
                         <NavLink className="font-bold" to="/" onClick={() => setToggle(!toggle)}>Home</NavLink>
                         {
                             <PrivetRoute>
@@ -57,7 +57,7 @@ const Navbar = () => {
                             user?.photoURL ? <img src={user.photoURL} alt="" referrerPolicy="no-referrer" className='w-8 rounded-full' /> : <span className='text-xl'><RxAvatar /></span>
                         }
                         {
-                            !loading && user?.displayName ? <h3 className='text-lg font-bold'>{user.displayName}</h3> : <h3 className="text-lg font-bold">User</h3>
+                            !loading && user?.displayName ? <h3 className='text-sm md:text-lg font-bold'>{user.displayName}</h3> : <h3 className="text-lg font-bold">User</h3>
                         }
                         <div className={`absolute p-3 bg-gray-300 top-[130%] left-[50%] -translate-x-[50%] w-full  ${toggleBtn ? "block" : "hidden"}`}>
                             {
