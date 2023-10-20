@@ -26,7 +26,7 @@ const Product = ({ product, setProducts, products }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // delete method here........
-                fetch(`http://localhost:5000/product/${_id}`, {
+                fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/product/${_id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())
@@ -50,7 +50,7 @@ const Product = ({ product, setProducts, products }) => {
             productName: selededProduct.productName, brandName: productName.brandName, porductImg: selededProduct.porductImg,
             desc: selededProduct.desc, price: selededProduct.price, rate: selededProduct.rate
         }
-        fetch(`http://localhost:5000/addtToCart`, {
+        fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/addtToCart`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(filterdproduct)

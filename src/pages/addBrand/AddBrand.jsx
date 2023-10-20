@@ -9,7 +9,7 @@ const AddBrand = () => {
         const brandImg = form.imgurl.value;
         const desc = form.desc.value;
         const brands = { brandName, brandImg, desc }
-        fetch("http://localhost:5000/addBrand", {
+        fetch("https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/addBrand", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(brands)

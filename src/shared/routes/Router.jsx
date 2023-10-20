@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                loader: () => fetch("http://localhost:5000/brnads"),
+                loader: () => fetch("https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/brnads"),
                 element: <Home></Home>
             },
             {
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
                 element: <AddProduct></AddProduct>
             }, {
                 path: "/my-cart",
-                loader: () => fetch("http://localhost:5000/myCart"),
+                loader: () => fetch("https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/myCart"),
                 element: <MyCart></MyCart>
             },
             {
@@ -52,12 +52,12 @@ const router = createBrowserRouter([
                 element: <Products></Products>
             }, {
                 path: "/updateProduct/:id",
-                loader: ({ params }) => fetch(`http://localhost:5000/updateProduct/${params.id}`),
+                loader: ({ params }) => fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/updateProduct/${params.id}`),
                 element: <UpdateProduct></UpdateProduct>
             },
             {
                 path: "/productDetail/:id",
-                loader: ({ params }) => fetch(`http://localhost:5000/productDetail/${params.id}`),
+                loader: ({ params }) => fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/productDetail/${params.id}`),
                 element: <ProductDetail></ProductDetail>
             }
         ]

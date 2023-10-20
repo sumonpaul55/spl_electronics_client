@@ -17,7 +17,7 @@ const UpdateProduct = () => {
         const rate = form.rating.value;
         const price = form.price.value;
         const product = { productName, porductImg, brandName, productType, desc, rate, price }
-        fetch(`http://localhost:5000/updateProduct/${_id}`, {
+        fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/updateProduct/${_id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(product)

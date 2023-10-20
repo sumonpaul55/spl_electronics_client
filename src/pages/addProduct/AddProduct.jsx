@@ -14,7 +14,7 @@ const AddProduct = () => {
         const rate = form.rating.value;
         const price = form.price.value;
         const product = { productName, porductImg, brandName, productType, desc, rate, price }
-        fetch("http://localhost:5000/addProduct", {
+        fetch("https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/addProduct", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(product)

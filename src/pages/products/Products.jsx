@@ -16,7 +16,7 @@ const Products = () => {
         navigate(-1)
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${brand}`)
+        fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/products/${brand}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data)

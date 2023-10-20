@@ -16,7 +16,7 @@ const Cart = ({ product, allCartData, setAllCartData }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // delete method here........
-                fetch(`http://localhost:5000/deleteCart/${id}`, {
+                fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/deleteCart/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())
