@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Banner from './banner/Banner';
 import Brands from './brands/Brands';
 import { TbTruckDelivery } from "react-icons/tb"
@@ -13,9 +13,7 @@ const Home = () => {
     const allDataDisplay = () => {
         setBsix(loadedData.length)
     }
-    useEffect(() => {
-        fetch()
-    }, [])
+
     return (
         <div>
             <Banner></Banner>

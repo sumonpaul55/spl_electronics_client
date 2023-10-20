@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types"
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AiFillEdit, AiFillDelete } from "react-icons/ai"
 import ReactStars from 'react-rating-star-with-type'
 import Swal from 'sweetalert2';
 const Product = ({ product, setProducts, products }) => {
     const { productName, brandName, porductImg, desc, price, _id, rate } = product;
-    const brand = useParams();
+
     const [star, setStar] = useState(rate);
     // start rating
     const onChange = (nextValue) => {
@@ -69,7 +69,7 @@ const Product = ({ product, setProducts, products }) => {
                     </div>
                     <p className='text-sm mt-3'>{desc.slice(0, 70)}</p>
                     <div className='flex justify-between pt-3 gap-2'>
-                        <Link to={`/product/${brand}/`}> <button className='btn btn-secondary px-2'>View more</button></Link>
+                        <Link to={`/productDetail/${_id}/`}> <button className='btn btn-secondary px-2'>View more</button></Link>
                         <button className='btn btn-secondary px-2'>Add To Cart</button>
                     </div>
                 </div>
