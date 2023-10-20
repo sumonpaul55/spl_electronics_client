@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from "prop-types"
 import Swal from 'sweetalert2';
 const Cart = ({ product, allCartData, setAllCartData }) => {
-    const { porductImg, productName, productType, brandName, price, _id } = product;
-    console.log(product)
+    const { porductImg, productName, brandName, price, _id, productType } = product;
+    // console.log(product)
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -42,8 +42,8 @@ const Cart = ({ product, allCartData, setAllCartData }) => {
                     <div className='flex-1'>
                         <h2 className="text-sm md:text-xl lg:3xl font-bold">{productName.slice(0, 9)}</h2>
                         <p className='font-bold'>$ {price}</p>
-                        <p>Type: {productType}</p>
                         <p>Brand: {brandName}</p>
+                        <p>Type: {productType}</p>
                     </div>
                     <button className='bg-secondary px-2 text-center text-white py-1 text-sm md:text-lg' onClick={() => handleDelete(_id)}>Delete</button>
                 </div>
