@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from './banner/Banner';
 import Brands from './brands/Brands';
 import { TbTruckDelivery } from "react-icons/tb"
 import { MdOutlinePriceCheck, MdRealEstateAgent } from "react-icons/md"
 import { useLoaderData } from 'react-router-dom';
-
+import headePhone from "../../assets/headphone.jpg"
 const Home = () => {
     const loadedData = useLoaderData();
     const [bsix, setBsix] = useState(6)
+
     let sixData = loadedData.slice(0, bsix)
     const allDataDisplay = () => {
         setBsix(loadedData.length)
     }
+    useEffect(() => {
+        fetch()
+    }, [])
     return (
         <div>
             <Banner></Banner>
@@ -68,6 +72,31 @@ const Home = () => {
                 <div className="container mx-auto">
                     <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">Special Offer</h1>
                     <p className='mt-1'>Up to 50% Discount for the following products. </p>
+                    <div className='grid grid-cols1 lg:grid-cols-2 gap-5 md:gap-10 mt-10'>
+                        <div>
+                            <img src={headePhone} alt="headePhone" />
+                        </div>
+                        <div className='space-y-5'>
+                            <h1 className="text-xl md:text-2xl lg:text-4xl font-bold">Super Headphone from sony</h1>
+                            <p className='font-bold'>price: $300</p>
+                            <p>Coupon code: <span className='text-secondary px-3 py-2 bg-white'>dkE#$%4</span></p>
+                            <p>Get up to 45% discout using the avobe coupon</p>
+                            <div className='flex gap-4'>
+                                <button className='btn btn-secondary'> Buy Now</button>
+                                <button className='btn btn-secondary'>Viwe Detail Now</button>
+                            </div>
+                            <p>Elevate your auditory experience to a new level with the Sony WH-1000XM4 headphones. Crafted with precision and innovation, these headphones are designed to transport you into a world of unparalleled audio quality, ultimate comfort, and smart features. Whether you re a music enthusiast, a frequent traveler, or simply looking to immerse yourself in sound like never before, the Sony WH-1000XM4 is your perfect companion.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className='py-20 px-1'>
+                <div className="container mx-auto">
+                    <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">All of Our Products</h1>
+                    <p className='mt-1'>Up to 50% Discount for the following products. </p>
+                    {
+
+                    }
                 </div>
             </section>
         </div >
