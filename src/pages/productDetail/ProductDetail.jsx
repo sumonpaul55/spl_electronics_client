@@ -3,7 +3,6 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const ProductDetail = () => {
     const product = useLoaderData();
-    console.log(product)
     const { porductImg, productName, productType, desc, price, brandName } = product
     return (
         <section className='py-20 bg-slate-300 px-1'>
