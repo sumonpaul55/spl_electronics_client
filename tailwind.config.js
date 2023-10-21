@@ -4,20 +4,9 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
-    extend: {
-      daisyui: {
-        themes: true,
-        darkTheme: "dark",
-        base: true,
-        styled: true,
-        utils: true,
-        rtl: false,
-        prefix: "",
-        logs: true,
-      },
-
-    },
+    extend: {},
   },
   plugins: [require("daisyui")],
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from "../../assets/logo.png"
 import { RxAvatar } from "react-icons/rx"
@@ -9,10 +9,10 @@ import Swal from 'sweetalert2';
 import PrivetRoute from '../routes/PrivetRoute';
 import { BsSunFill, BsSun } from "react-icons/bs"
 const Navbar = () => {
-    const { theme, setTheme } = useContext(AuthContext)
     const { user, logOut, loading } = useContext(AuthContext)
     const [toggleBtn, setToggleBtn] = useState(false)
     const [toggle, setToggle] = useState(false);
+    const [theme, setTheme] = useState("light")
     const handleLogout = () => {
         logOut()
             .then(
@@ -29,10 +29,16 @@ const Navbar = () => {
         e.stopPropagation();
         setToggleBtn(!toggleBtn)
     }
+    useEffect(() => {
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark")
+        } else {
+            document.documentElement.classList.remove("dark")
+        }
+    }, [theme])
+    // toggle the theme options
     const toggleTheme = () => {
-        if (theme === "light") {
-            setTheme("dark")
-        } else setTheme("light")
+        setTheme(theme === "dark" ? "light" : "dark")
     }
     return (
 

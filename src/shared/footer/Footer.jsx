@@ -10,7 +10,7 @@ const Footer = () => {
     })
 
     return (
-        <section className='pt-32 bg-slate-200 text-white mt-20'>
+        <section className='pt-40 bg-slate-200 text-white'>
             <div className="container px-1 mx-auto">
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-20'>
                     <div>

@@ -1,17 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import Banner from './banner/Banner';
 import Brands from './brands/Brands';
 import { TbTruckDelivery } from "react-icons/tb"
 import { MdOutlinePriceCheck, MdRealEstateAgent } from "react-icons/md"
 import { useLoaderData } from 'react-router-dom';
 import headePhone from "../../assets/headphone.jpg"
-import { AuthContext } from '../../shared/contextApi/AuthProvider';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import googlePixels from "../../assets/googlephone.jpg"
 import camera from "../../assets/canoncamre.jpg"
 const Home = () => {
-    const { theme } = useContext(AuthContext)
     const loadedData = useLoaderData();
     const [bsix, setBsix] = useState(6)
     let sixData = loadedData.slice(0, bsix)
@@ -40,9 +38,9 @@ const Home = () => {
 
 
     return (
-        <div data-theme={theme}>
+        <div className='dark:bg-black dark:text-white'>
             <Banner></Banner>
-            <section className='py-10 md:py-20 bg-teal-400'>
+            <section className='py-10 md:py-20 bg-teal-400 dark:bg-black'>
                 <div className="container mx-auto px-1">
                     <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-16'>
                         <div className='flex items-center w-full'>
@@ -75,7 +73,7 @@ const Home = () => {
                     </div>
                 </div>
             </section >
-            <section className='py-10 md:py-20 bg-slate-100'>
+            <section className='py-10 md:py-20 bg-slate-100 dark:bg-black'>
                 <div className="container mx-auto px-1">
                     <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">Discover Excellence in Electronics Brand</h1>
                     <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-16 mt-20'>
@@ -91,7 +89,7 @@ const Home = () => {
                 </div>
             </section>
             {/* section for offer */}
-            <section className='py-20 px-1 bg-slate-200'>
+            <section className='py-20 px-1 bg-slate-200 dark:bg-gray-800'>
                 <div className="container mx-auto">
                     <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">Special Offer</h1>
                     <p className='mt-1'>Up to 50% Discount for the following products. </p>
