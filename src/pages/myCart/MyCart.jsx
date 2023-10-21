@@ -6,9 +6,9 @@ import { AuthContext } from '../../shared/contextApi/AuthProvider';
 const MyCart = () => {
     const { user, loading } = useContext(AuthContext)
     const [cart, setCart] = useState([])
-    let email = user?.email;
+    let email = !loading && user?.email;
     useEffect(() => {
-        !loading && fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/myCart/${email}`)
+        !loading && fetch(`https://scp-electronics-server-byvbsato6-sumonpaul55s-projects.vercel.app/myCart/${email}`)
             .then(res => res.json())
             .then(data => {
                 setCart(data)
