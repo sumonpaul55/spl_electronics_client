@@ -12,6 +12,7 @@ const Brands = ({ brand, intemNo }) => {
         }
 
     }
+
     return (
         <div className='border p-2 rounded-lg shadow group bg-gray-100 dark:bg-gray-800'>
             <div className='duration-150 relative'>
