@@ -17,7 +17,7 @@ const Footer = () => {
                         <img src={logo} alt="logo" />
                         <p className='mt-4 text-slate-600 text-justify'>Discover the future of electronics at SCP Electronics, where innovation meets quality. Explore cutting-edge technologies, find the latest gadgets, and unlock the power of connected living. From smart home solutions to futuristic gizmos, we re your gateway to the electronic wonders of tomorrow. Join us on a journey of limitless possibilities at SCP Electronics.</p>
                     </div>
-                    <div className='text-center'>
+                    <div className='md:text-center'>
                         <h1 className="text-xl md:text-2xl text-black font-semibold mb-10">Menu</h1>
                         <div className="flex flex-col gap-5 text-black">
                             <NavLink className="font-bold" to="/" onClick={() => setToggle(!toggle)}>Home</NavLink>
