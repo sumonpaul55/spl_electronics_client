@@ -12,7 +12,7 @@ const MyCart = () => {
         email = user.email;
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/myCart/${email}`)
+        fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/myCart/${email}`)
             .then(res => res.json())
             .then(data => {
                 setCart(data)
@@ -26,31 +26,37 @@ const MyCart = () => {
     })
 
     return (
-        <div className='container mx-auto p-1'>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10'>
-                {cart.length > 0 ?
-                    cart.map((product, idx) => (
-                        <Cart key={idx} product={product} allCartData={allCartData} setAllCartData={setAllCartData}></Cart>
-                    ))
-                    :
-                    <div className='h-[50vh] flex items-center justify-center'>
-                        <h2 className='text-center font-bold text-2xl md:text-3xl'>No Product Added Yet to your cart</h2>
-                    </div>
-                }
-            </div>
+        <>
             {
-                allCartData.length > 0 &&
-                <div className='shadow p-5 mt-20'>
-                    <h2 className="text-lg md:text-xl">Total Items : {allCartData.length}</h2>
-                    <div className='flex justify-between items-center font-bold space-y-10'>
-                        <h2 className="text-lg md:text-xl">Total Price:</h2>
-                        <h2>$ {price}</h2>
+                loading ? <h3 className='text-4xl text-center py-20'>Loading...</h3>
+                    :
+                    <div className='container mx-auto p-1 py-20'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10'>
+                            {cart.length > 0 ?
+                                cart.map((product, idx) => (
+                                    <Cart key={idx} product={product} allCartData={allCartData} setAllCartData={setAllCartData}></Cart>
+                                ))
+                                :
+                                <div className='h-[50vh] flex items-center justify-center'>
+                                    <h2 className='text-center font-bold text-2xl md:text-3xl'>No Product Added Yet to your cart</h2>
+                                </div>
+                            }
+                        </div>
+                        {
+                            allCartData.length > 0 &&
+                            <div className='shadow p-5 mt-20'>
+                                <h2 className="text-lg md:text-xl">Total Items : {allCartData.length}</h2>
+                                <div className='flex justify-between items-center font-bold space-y-10'>
+                                    <h2 className="text-lg md:text-xl">Total Price:</h2>
+                                    <h2>$ {price}</h2>
+                                </div>
+                                <hr />
+                                <button className='btn btn-secondary mt-10 w-full'>Procced</button>
+                            </div>
+                        }
                     </div>
-                    <hr />
-                    <button className='btn btn-secondary mt-10 w-full'>Procced</button>
-                </div>
             }
-        </div>
+        </>
     );
 };
 
