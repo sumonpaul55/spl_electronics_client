@@ -39,9 +39,10 @@ const Login = () => {
         }
     }
     return (
-        <div className='container mx-auto p-1'>
-            <div className="mt-20">
-                <div className="card-body shadow-2xl bg-base-100 max-w-[500px] mx-auto">
+        <div className='py-20 dark:bg-slate-700 p-1'>
+            <div className="mt-10">
+                <h2 className='text-center mb-20 font-bold text-xl md:text-2xl lg:text-4xl dark:text-white'>Register</h2>
+                <div className="card-body shadow-2xl bg-base-100 max-w-[500px] mx-auto p-2 md:p-10">
                     <form className="space-y-5" onSubmit={handleSignup}>
                         <div className="form-control">
                             <label className="label" htmlFor=''>

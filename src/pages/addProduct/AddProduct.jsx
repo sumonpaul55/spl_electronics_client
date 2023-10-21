@@ -28,7 +28,7 @@ const AddProduct = () => {
         form.reset();
     }
     return (
-        <div className='container mx-auto px-1 mt-20'>
+        <div className='mx-auto px-1 py-20 dark:bg-slate-800'>
             <div className='max-w-[700px] mx-auto'>
                 <form className='space-y-10' onSubmit={handleAddproduct}>
                     <div className='flex gap-2'>

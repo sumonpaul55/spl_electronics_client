@@ -35,22 +35,23 @@ const Login = () => {
             })
     }
     return (
-        <div className='p-1 dark:bg-gray-700 py-20 dark:text-white'>
+        <div className='p-1 dark:bg-slate-700 py-20 dark:text-white'>
             <div className="mt-20">
+                <h2 className="text-xl md:text-3xl lg:text-5xl text-center font-bold mb-10">Login</h2>
                 <div className="card-body shadow-2xl max-w-[500px] mx-auto">
                     <form className="space-y-5" onSubmit={handleLogin}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold dark:text-white">Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                            <input type="email" name='email' placeholder="email" className="input input-bordered dark:text-black" required />
                         </div>
                         <div className="form-control">
                             <label className="label ">
                                 <span className="label-text font-semibold dark:text-white">Password</span>
                             </label>
                             <div className='relative'>
-                                <input type={show ? "text" : "password"} name='password' placeholder="password" className="input input-bordered w-full" required />
+                                <input type={show ? "text" : "password"} name='password' placeholder="password" className="input input-bordered w-full dark:text-black" required />
                                 <span className='absolute top-3 cursor-pointer text-xl right-2' onClick={() => setShow(!show)}>{show ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}</span>
                             </div>
                             <label className="label">
@@ -62,7 +63,7 @@ const Login = () => {
                         </div>
                     </form>
                     <div className=''>
-                        <h3 className="text-sm">Are you new here? Please <Link className='text-secondary' to="/sign-up">Sign Up</Link></h3>
+                        <h3 className="text-sm">Are you new here? Please <Link className='text-secondary text-lg md:text-xl' to="/sign-up">Register</Link></h3>
                         <h2 className='mt-3 border-t pt-2 font-semibold'>Login with following Social media</h2>
                         <div className='bg-slate-100 p-3 flex items-center dark:bg-black justify-center mt-3 gap-3 cursor-pointer text-xl rounded-md' onClick={handlegoogleLogin}>
                             <span className=''><AiFillGoogleCircle /></span>

@@ -41,8 +41,7 @@ const Navbar = () => {
         setTheme(theme === "dark" ? "light" : "dark")
     }
     return (
-
-        <nav className='bg-grya-100 shadow relative'>
+        <nav className='bg-grya-100 shadow relative dark:bg-slate-600 dark:text-white'>
             <div className="container mx-auto p-1">
                 <div className='flex items-center justify-between'>
                     <div className="logo">
