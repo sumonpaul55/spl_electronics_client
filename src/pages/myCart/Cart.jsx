@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from "prop-types"
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../shared/contextApi/AuthProvider';
 const Cart = ({ product, cart, setCart }) => {
     const { porductImg, productName, brandName, price, _id, productType } = product;
+    const { loading } = useContext(AuthContext)
     // console.log(product)
     const handleDelete = (id) => {
         Swal.fire({
@@ -37,19 +39,22 @@ const Cart = ({ product, cart, setCart }) => {
     }
     return (
         <>
-            <div className='flex gap-4 items-center shadow-lg p-2 md:p-6'>
-                <img src={porductImg} alt={productName} className='w-1/2 md:w-1/3' />
-                <div className='flex flex-col md:flex-row justify-between items-start w-full'>
-                    <div className='flex-1'>
-                        <h2 className="text-sm md:text-xl lg:3xl font-bold">{productName.slice(0, 9)}</h2>
-                        <p className='font-bold'>$ {price}</p>
-                        <p>Brand: {brandName}</p>
-                        <p>Type: {productType}</p>
+            {
+                loading ? <h2 className='text-3xl py-20 text-center font-bold'>Loading</h2>
+                    :
+                    <div className='flex gap-4 items-center shadow-lg p-2 md:p-6'>
+                        <img src={porductImg} alt={productName} className='w-1/2 md:w-1/3' />
+                        <div className='flex flex-col md:flex-row justify-between items-start w-full'>
+                            <div className='flex-1'>
+                                <h2 className="text-sm md:text-xl lg:3xl font-bold">{productName.slice(0, 9)}</h2>
+                                <p className='font-bold'>$ {price}</p>
+                                <p>Brand: {brandName}</p>
+                                <p>Type: {productType}</p>
+                            </div>
+                            <button className='bg-secondary px-2 text-center text-white py-1 text-sm md:text-lg' onClick={() => handleDelete(_id)}>Delete</button>
+                        </div>
                     </div>
-                    <button className='bg-secondary px-2 text-center text-white py-1 text-sm md:text-lg' onClick={() => handleDelete(_id)}>Delete</button>
-                </div>
-            </div>
-
+            }
         </>
 
     );
