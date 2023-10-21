@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, } from 'react';
 import PropTypes from "prop-types"
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../shared/contextApi/AuthProvider';
 const Brands = ({ brand, intemNo }) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate();
+    // const [product, setProduct] = useState([])
     const handleBrand = (brand) => {
+        // console.log(product)
+        // setBrandName(brand)
         const targetBrand = brand.toLowerCase();
         {
             user ? navigate(`/products/${targetBrand}`) : navigate("/login")
@@ -29,6 +32,7 @@ const Brands = ({ brand, intemNo }) => {
 };
 Brands.propTypes = {
     brand: PropTypes.object,
-    intemNo: PropTypes.number
+    intemNo: PropTypes.number,
+    setBrandName: PropTypes.func
 }
 export default Brands;

@@ -31,7 +31,6 @@ const router = createBrowserRouter([
                 element: <AddProduct></AddProduct>
             }, {
                 path: "/my-cart",
-                loader: () => fetch("https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/myCart"),
                 element: <MyCart></MyCart>
             },
             {
@@ -59,7 +58,7 @@ const router = createBrowserRouter([
                 path: "/productDetail/:id",
                 loader: ({ params }) => fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/productDetail/${params.id}`),
                 element: <ProductDetail></ProductDetail>
-            }
+            },
         ]
     },
 ]);

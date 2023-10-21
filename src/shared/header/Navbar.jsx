@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo.png"
 import { RxAvatar } from "react-icons/rx"
 import "./navbar.css"
@@ -13,14 +13,15 @@ const Navbar = () => {
     const [toggleBtn, setToggleBtn] = useState(false)
     const [toggle, setToggle] = useState(false);
     const [theme, setTheme] = useState("light")
+    const navigate = useNavigate()
     const handleLogout = () => {
         logOut()
             .then(
                 Swal.fire("You have Signed Out")
-
             ).catch((err) => {
                 Swal(`${err}`)
             })
+        navigate("/")
     }
     document.body.addEventListener("click", () => {
         setToggleBtn(false)

@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom';
 import { AiFillEdit, AiFillDelete } from "react-icons/ai"
 import ReactStars from 'react-rating-star-with-type'
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../shared/contextApi/AuthProvider';
 const arryProduct = []
 const Product = ({ product, setProducts, products }) => {
     const { productName, brandName, porductImg, desc, price, _id, rate, productType } = product;
     arryProduct.push(product)
     const [star, setStar] = useState(rate);
+    const { user } = useContext(AuthContext)
+    const { email } = user;
     // start rating
 
     const onChange = (nextValue) => {
@@ -48,8 +51,9 @@ const Product = ({ product, setProducts, products }) => {
         const selededProduct = arryProduct.find((pd) => pd._id === id)
         const filterdproduct = {
             productName: selededProduct.productName, brandName: selededProduct.brandName, porductImg: selededProduct.porductImg, productType: selededProduct.productType,
-            desc: selededProduct.desc, price: selededProduct.price, rate: selededProduct.rate
+            desc: selededProduct.desc, price: selededProduct.price, rate: selededProduct.rate, email: email
         }
+        console.log(filterdproduct)
         fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/addtToCart`, {
             method: "POST",
             headers: { "content-type": "application/json" },

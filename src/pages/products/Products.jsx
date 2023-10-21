@@ -22,7 +22,6 @@ const Products = () => {
                 setProducts(data)
             })
     }, [brand])
-
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.

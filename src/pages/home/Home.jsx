@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import Banner from './banner/Banner';
 import Brands from './brands/Brands';
 import { TbTruckDelivery } from "react-icons/tb"
@@ -18,6 +18,7 @@ const Home = () => {
     const allDataDisplay = () => {
         setBsix(loadedData.length)
     }
+ 
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -37,7 +38,6 @@ const Home = () => {
             items: 1
         }
     };
-
 
     return (
         <>

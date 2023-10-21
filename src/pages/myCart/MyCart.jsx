@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { } from 'react-router-dom';
 import Cart from './Cart';
+import { AuthContext } from '../../shared/contextApi/AuthProvider';
 
 const MyCart = () => {
-
-    const loadedData = useLoaderData();
-    const [allCartData, setAllCartData] = useState(loadedData)
-
+    const { user, loading } = useContext(AuthContext)
+    const [cart, setCart] = useState([])
+    const [allCartData, setAllCartData] = useState(cart)
+    let email;
+    if (!loading) {
+        email = user.email;
+    }
+    useEffect(() => {
+        fetch(`http://localhost:5000/myCart/${email}`)
+            .then(res => res.json())
+            .then(data => {
+                setCart(data)
+            })
+        console.log(email)
+    }, [email])
     let price = 0;
     allCartData.forEach((items) => {
         const productprice = parseInt(items.price);
@@ -16,8 +28,8 @@ const MyCart = () => {
     return (
         <div className='container mx-auto p-1'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10'>
-                {allCartData.length > 0 ?
-                    allCartData.map((product, idx) => (
+                {cart.length > 0 ?
+                    cart.map((product, idx) => (
                         <Cart key={idx} product={product} allCartData={allCartData} setAllCartData={setAllCartData}></Cart>
                     ))
                     :
