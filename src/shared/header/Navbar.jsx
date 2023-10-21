@@ -16,12 +16,11 @@ const Navbar = () => {
     const navigate = useNavigate()
     const handleLogout = () => {
         logOut()
-            .then(
-                Swal.fire("You have Signed Out")
-            ).catch((err) => {
+            .then(Swal.fire({ title: "You have signed out seccessfully", icon: "success" }),
+                navigate("/"))
+            .catch((err) => {
                 Swal(`${err}`)
             })
-        navigate("/")
     }
     document.body.addEventListener("click", () => {
         setToggleBtn(false)

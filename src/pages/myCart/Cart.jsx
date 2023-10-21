@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types"
 import Swal from 'sweetalert2';
-const Cart = ({ product, allCartData, setAllCartData }) => {
+const Cart = ({ product, cart, setCart }) => {
     const { porductImg, productName, brandName, price, _id, productType } = product;
     // console.log(product)
     const handleDelete = (id) => {
@@ -28,8 +28,9 @@ const Cart = ({ product, allCartData, setAllCartData }) => {
                                 'success'
                             )
                         }
-                        const remainigProduct = allCartData.filter(pd => pd._id !== id);
-                        setAllCartData(remainigProduct)
+                        const remainigProduct = cart.filter(pd => pd._id !== id);
+                        setCart(remainigProduct)
+                        console.log(remainigProduct)
                     })
             }
         })
@@ -55,7 +56,7 @@ const Cart = ({ product, allCartData, setAllCartData }) => {
 };
 Cart.propTypes = {
     product: PropTypes.object,
-    allCartData: PropTypes.array,
-    setAllCartData: PropTypes.func
+    cart: PropTypes.array,
+    setCart: PropTypes.func
 }
 export default Cart;

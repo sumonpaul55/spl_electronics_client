@@ -53,7 +53,6 @@ const Product = ({ product, setProducts, products }) => {
             productName: selededProduct.productName, brandName: selededProduct.brandName, porductImg: selededProduct.porductImg, productType: selededProduct.productType,
             desc: selededProduct.desc, price: selededProduct.price, rate: selededProduct.rate, email: email
         }
-        console.log(filterdproduct)
         fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/addtToCart`, {
             method: "POST",
             headers: { "content-type": "application/json" },
