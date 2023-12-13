@@ -23,7 +23,7 @@ const AddUpCommingCategory = () => {
         if (res.data.success) {
             const categoryImgUrl = res.data.data.url;
             const upcommingCategory = { categoryImgUrl, title, details }
-            const postResponse = await axios.post("http://localhost:5000/upcommingCategory", upcommingCategory)
+            const postResponse = await axios.post("https://scp-electronics-server.vercel.app/upcommingCategory", upcommingCategory)
             if (postResponse.data.insertedId) {
                 Swal.fire({
                     title: "Category added as a Upcomming Product"
