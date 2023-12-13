@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from './banner/Banner';
 import Brands from './brands/Brands';
 import { TbTruckDelivery } from "react-icons/tb"
@@ -7,8 +7,6 @@ import { useLoaderData } from 'react-router-dom';
 import headePhone from "../../assets/headphone.jpg"
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import googlePixels from "../../assets/googlephone.jpg"
-import camera from "../../assets/canoncamre.jpg"
 import { } from '../../shared/contextApi/AuthProvider';
 const Home = () => {
     // const { loading } = useContext(AuthContext)
@@ -18,7 +16,7 @@ const Home = () => {
     const allDataDisplay = () => {
         setBsix(loadedData.length)
     }
-
+    const [categoryData, setCategoryData] = useState([])
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -39,6 +37,13 @@ const Home = () => {
         }
     };
 
+    // getting categroy data
+    useEffect(() => {
+        fetch("http://localhost:5000/upcomming-category")
+            .then(res => res.json())
+            .then(data => setCategoryData(data))
+    }, [])
+    // console.log(categoryData)
     return (
         <>
             {
@@ -128,42 +133,21 @@ const Home = () => {
 
                                 autoPlaySpeed={1000}
                                 keyBoardControl={true}>
-                                <div className="flex gap-5 flex-col md:flex-row justify-center">
-                                    <div className="flex-1">
-                                        <img src={googlePixels} alt="pixle phone" className="ml-auto" />
-                                    </div>
-                                    <div className="flex-1">
-                                        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-5">Google Pixle Phone</h2>
-                                        <p>
-                                            Google Pixel phones are a line of smartphones developed by Google. They are known for their clean and pure Android experience, regular software updates, and a focus on artificial intelligence. Key features of Google Pixel phones include:
+                                {
+                                    categoryData?.map((items, idx) => (
+                                        <div key={idx} className="flex gap-5 flex-col md:flex-row justify-center">
+                                            <div className="flex-1">
+                                                <img src={items?.categoryImgUrl} alt="pixle phone" className="ml-auto" />
+                                            </div>
+                                            <div className="flex-1">
+                                                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-5">{items?.title}</h2>
+                                                <p>{items?.details}</p>
+                                                <button className="btn btn-secondary mt-10">View Detail</button>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
 
-                                            Stock Android: Google Pixel phones run a stock version of Android, free from bloatware and custom skins, providing a clean and user-friendly interface.
-
-                                            Pixel Camera: Googles Pixel phones are renowned for their exceptional camera capabilities, offering impressive photography and video recording, often powered by AI-driven enhancements.
-
-                                            Google Assistant: Google Pixel phones come with Google Assistant built-in, allowing users to access information, control their devices, and perform tasks via voice commands.
-                                        </p>
-                                        <button className="btn btn-secondary mt-10">View Detail</button>
-                                    </div>
-                                </div>
-                                <div className="flex gap-5 flex-col md:flex-row justify-center">
-                                    <div className="flex-1">
-                                        <img src={camera} alt="pixle phone" className="ml-auto" />
-                                    </div>
-                                    <div className="flex-1">
-                                        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-5">Best Canon Camera</h2>
-                                        <p>
-                                            Google Pixel phones are a line of smartphones developed by Google. They are known for their clean and pure Android experience, regular software updates, and a focus on artificial intelligence. Key features of Google Pixel phones include:
-
-                                            Stock Android: Google Pixel phones run a stock version of Android, free from bloatware and custom skins, providing a clean and user-friendly interface.
-
-                                            Pixel Camera: Googles Pixel phones are renowned for their exceptional camera capabilities, offering impressive photography and video recording, often powered by AI-driven enhancements.
-
-                                            Google Assistant: Google Pixel phones come with Google Assistant built-in, allowing users to access information, control their devices, and perform tasks via voice commands.
-                                        </p>
-                                        <button className="btn btn-secondary mt-10">View Detail</button>
-                                    </div>
-                                </div>
                             </Carousel>
                         </div>
                     </section>
