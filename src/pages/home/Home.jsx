@@ -48,12 +48,12 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myCart-total/${user.email}`)
+        fetch(`https://scp-electronics-server.vercel.app/myCart-total/${user.email}`)
             .then(res => res.json())
             .then(data => setCartNumber(data))
     }, [user])
     // console.log(categoryData)
-    console.log(cartNumber)
+    // console.log(cartNumber)
     return (
         <>
             {
