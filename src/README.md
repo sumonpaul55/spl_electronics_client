@@ -39,3 +39,4 @@ Websites Features
 Here Implemented the image file system not url system.
 And after all this items will show the home page "Our Upcomming Categories" section.
 
+* Cart total items: I have implemented a Features in home page how many items already added in the cart. he/she will be able to know that from home page. he/she doesn't need to go myCart page. 
