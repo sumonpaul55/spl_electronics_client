@@ -31,3 +31,11 @@ Websites Features
 * If You add Product from Product page it will show in your cart page with 2 coulmn layout and If will able to delete product from there.
 
 * You can see the Product details after clicking the details button from product page
+
+
+<!-- todas implemented features -->
+
+* Home page Upcomming section: It was static and hard coded now its dyanmaic and upcomming items is comming from database. And you can add more items as a Upcomming offer from clicking the button in dropdown in your profile name after clicking the "Up Comming Category" ;
+Here Implemented the image file system not url system.
+And after all this items will show the home page "Our Upcomming Categories" section.
+

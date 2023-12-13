@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Banner from './banner/Banner';
 import Brands from './brands/Brands';
 import { TbTruckDelivery } from "react-icons/tb"
@@ -7,11 +7,13 @@ import { useLoaderData } from 'react-router-dom';
 import headePhone from "../../assets/headphone.jpg"
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { } from '../../shared/contextApi/AuthProvider';
+import { AuthContext } from '../../shared/contextApi/AuthProvider';
 const Home = () => {
     // const { loading } = useContext(AuthContext)
     const loadedData = useLoaderData();
     const [bsix, setBsix] = useState(6)
+    const [cartNumber, setCartNumber] = useState(0)
+    const { user } = useContext(AuthContext)
     let sixData = loadedData.slice(0, bsix)
     const allDataDisplay = () => {
         setBsix(loadedData.length)
@@ -43,12 +45,23 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setCategoryData(data))
     }, [])
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/myCart-total/${user.email}`)
+            .then(res => res.json())
+            .then(data => setCartNumber(data))
+    }, [user])
     // console.log(categoryData)
+    console.log(cartNumber)
     return (
         <>
             {
 
                 <div className='dark:bg-black dark:text-white'>
+                    <div className=' bg-red-700 py-2 total-cart z-50 rotate-90 px-2 text-white font-bold fixed -right-3 top-1/3'>
+                        <h1>Total={cartNumber?.length}</h1>
+                    </div>
                     <Banner></Banner>
                     <section className='py-10 md:py-20 bg-teal-400 dark:bg-black'>
                         <div className="container mx-auto px-1">
@@ -153,6 +166,7 @@ const Home = () => {
                     </section>
                 </div >
             }
+
         </>
     );
 };
