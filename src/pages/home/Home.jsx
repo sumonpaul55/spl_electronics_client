@@ -59,8 +59,8 @@ const Home = () => {
             {
 
                 <div className='dark:bg-black dark:text-white'>
-                    <div className=' bg-red-700 py-2 total-cart z-50 rotate-90 px-2 text-white font-bold fixed -right-3 top-1/3'>
-                        <h1>Total={cartNumber?.length}</h1>
+                    <div className=' bg-red-700 py-2 total-cart z-50 rotate-90 px-2 text-white rounded-full font-bold fixed -right-16 top-1/3'>
+                        <h1 className=''>Total Cart Items = {cartNumber?.length}</h1>
                     </div>
                     <Banner></Banner>
                     <section className='py-10 md:py-20 bg-teal-400 dark:bg-black'>
