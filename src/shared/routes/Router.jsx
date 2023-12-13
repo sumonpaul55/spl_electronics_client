@@ -13,6 +13,7 @@ import AddBrand from '../../pages/addBrand/AddBrand';
 import Products from '../../pages/products/Products';
 import UpdateProduct from '../../pages/updateProduct/UpdateProduct';
 import ProductDetail from '../../pages/productDetail/ProductDetail';
+import AddUpCommingCategory from '../../pages/upComming/AddUpCommingCategory';
 
 
 const router = createBrowserRouter([
@@ -49,7 +50,13 @@ const router = createBrowserRouter([
             {
                 path: "/products/:brand",
                 element: <Products></Products>
-            }, {
+
+            },
+            {
+                path: "/add-upcommingCategory",
+                element: <AddUpCommingCategory></AddUpCommingCategory>
+            },
+            {
                 path: "/updateProduct/:id",
                 loader: ({ params }) => fetch(`https://scp-electronics-server-4bbwvqox5-sumonpaul55s-projects.vercel.app/updateProduct/${params.id}`),
                 element: <UpdateProduct></UpdateProduct>

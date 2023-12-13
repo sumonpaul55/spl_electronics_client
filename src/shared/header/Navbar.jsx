@@ -64,12 +64,13 @@ const Navbar = () => {
                         {
                             !loading && user?.displayName ? <h3 className='text-sm md:text-lg font-bold'>{user.displayName}</h3> : <h3 className="text-lg font-bold">User</h3>
                         }
-                        <div className={`absolute p-3 bg-gray-300 top-[130%] left-[50%] -translate-x-[50%] w-full  ${toggleBtn ? "block" : "hidden"}`}>
+                        <div className={`absolute p-3 bg-gray-300 top-[130%] left-[50%] -translate-x-[50%] min-w-full  ${toggleBtn ? "block" : "hidden"}`}>
                             {
                                 user ?
                                     <div>
-                                        <button onClick={handleLogout} className='hover:btn-secondary w-full'>Log Out</button>
-                                        <Link to="/addBrand" className='hover:btn-secondary w-full my-2 block text-center'>Add Brands</Link>
+                                        <button onClick={handleLogout} className='hover:btn-secondary w-full px-1 py-2'>Log Out</button>
+                                        <Link to="/addBrand" className='hover:btn-secondary w-full my-2 block text-center px-1 py-2'>Add Brands</Link>
+                                        <Link to="/add-upcommingCategory" className='hover:btn-secondary w-full my-2 block text-center whitespace-nowrap px-1 py-2'>Up Comming Category</Link>
                                     </div>
                                     : <Link to="/login">Login</Link>}
                         </div>
