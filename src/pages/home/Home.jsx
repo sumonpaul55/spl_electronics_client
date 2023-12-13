@@ -39,7 +39,7 @@ const Home = () => {
 
     // getting categroy data
     useEffect(() => {
-        fetch("http://localhost:5000/upcomming-category")
+        fetch("https://scp-electronics-server.vercel.app/upcomming-category")
             .then(res => res.json())
             .then(data => setCategoryData(data))
     }, [])
